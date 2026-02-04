@@ -1,6 +1,3 @@
-"""
-Custom PyTorch Dataset for AI-generated vs Real image classification
-"""
 import os
 from typing import Tuple, Optional, List
 from PIL import Image
@@ -14,20 +11,7 @@ from src.preprocessing import get_train_transforms, get_val_transforms
 
 
 class AIImageDataset(Dataset):
-    """
-    Custom Dataset for loading AI-generated and Real images.
-    
-    Expected directory structure:
-    data_dir/
-        real/
-            image1.jpg
-            image2.png
-            ...
-        ai_generated/
-            image1.jpg
-            image2.png
-            ...
-    """
+
     
     SUPPORTED_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.bmp', '.gif', '.webp'}
     
@@ -37,14 +21,7 @@ class AIImageDataset(Dataset):
         transform=None,
         class_names: List[str] = None
     ):
-        """
-        Initialize the dataset.
         
-        Args:
-            data_dir: Path to the data directory containing class folders
-            transform: Optional transforms to apply to images
-            class_names: List of class names (folder names). Default: ['real', 'ai_generated']
-        """
         self.data_dir = data_dir
         self.transform = transform
         self.class_names = class_names or CLASS_NAMES
