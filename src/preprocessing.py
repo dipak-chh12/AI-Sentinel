@@ -13,16 +13,7 @@ from config import IMAGE_SIZE, IMAGENET_MEAN, IMAGENET_STD
 
 
 def get_train_transforms():
-    """
-    Get training transforms with data augmentation.
     
-    Includes:
-    - Random resized crop
-    - Random horizontal flip
-    - Random rotation
-    - Color jitter
-    - Normalization
-    """
     return transforms.Compose([
         transforms.Resize((IMAGE_SIZE + 32, IMAGE_SIZE + 32)),
         transforms.RandomCrop(IMAGE_SIZE),
